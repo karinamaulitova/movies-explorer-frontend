@@ -6,6 +6,8 @@ import Footer from '../Footer/Footer';
 import MoviesCardsList from '../MoviesCardsList/MoviesCardsList';
 
 function MoviesPage() {
+
+
   return (
     <div className='movies-page'>
       <Header>

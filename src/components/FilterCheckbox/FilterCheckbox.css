@@ -1,7 +1,7 @@
 .filter-checkbox {
   cursor: pointer;
   box-sizing: border-box;
-  display: flex
+  display: flex;
 }
 .filter-checkbox__switch {
   display: inline-block;
@@ -47,4 +47,24 @@
   font-weight: normal;
   font-size: 13px;
   line-height: 18px;
+}
+
+@media screen and (max-width: 1279px) {
+  .filter-checkbox__switch {
+    margin: 0 15px 0 20px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .filter-checkbox__label {
+    font-size: 11px;
+  }
+
+  .filter-checkbox__switch {
+    margin: 0 13px 0 0;
+  }
+
+  .filter-checkbox {
+    margin-top: 45px;
+  }
 }
