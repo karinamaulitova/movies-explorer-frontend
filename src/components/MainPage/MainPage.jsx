@@ -18,10 +18,12 @@ function MainPage() {
           Войти
         </Link>
       </Header>
-      <Promo />
-      <AboutProject />
-      <Techs />
-      <AboutMe />
+      <main className='main-page__main'>
+        <Promo />
+        <AboutProject />
+        <Techs />
+        <AboutMe />
+      </main>
       <Footer />
     </div>
   );

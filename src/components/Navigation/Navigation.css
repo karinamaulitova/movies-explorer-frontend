@@ -1,0 +1,62 @@
+.nav {
+  display: flex;
+  align-items: baseline;
+}
+
+.nav__list {
+  display: flex;
+  margin: 0 50px 0 0;
+  padding: 0;
+}
+
+.nav__item {
+  list-style: none;
+  margin-right: 20px;
+}
+
+.nav__item_type_mobile {
+  display: none;
+}
+
+.nav__item:last-of-type {
+  margin: 0;
+}
+
+.nav__link {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 18px;
+  color: #000000;
+  margin: 0;
+
+  text-decoration: none;
+}
+
+.nav__link.active {
+  font-weight: 500;
+}
+
+.nav__profile-link {
+  text-decoration: none;
+  
+  display: flex;
+  align-items: center;
+}
+
+.nav__profile-text {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+  color: #000000;
+
+  margin: 0 17px 0 0;
+}
+
+.nav__profile-icon {
+  background: #f4f4f4;
+  border-radius: 4px;
+  padding: 8px 7.25px;
+  box-sizing: border-box;
+}

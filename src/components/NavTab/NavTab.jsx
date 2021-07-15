@@ -1,23 +1,22 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 function NavTab() {
   return (
-    <ul className='nav-list'>
-      <li className='nav-list__item'>
-        <Link to='#about-project' className='nav-list__link'>
+    <ul className='navtab-list'>
+      <li className='navtab-list__item'>
+        <a href='#about-project' className='navtab-list__link'>
           О проекте
-        </Link>
+        </a>
       </li>
-      <li className='nav-list__item'>
-        <Link to='#techs' className='nav-list__link'>
+      <li className='navtab-list__item'>
+        <a href='#techs' className='navtab-list__link'>
           Технологии
-        </Link>
+        </a>
       </li>
-      <li className='nav-list__item'>
-        <Link to='#student' className='nav-list__link'>
+      <li className='navtab-list__item'>
+        <a href='#student' className='navtab-list__link'>
           Студент
-        </Link>
+        </a>
       </li>
     </ul>
   );
