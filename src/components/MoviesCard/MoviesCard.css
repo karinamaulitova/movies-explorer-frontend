@@ -1,0 +1,48 @@
+.movie {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.movie__name-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 0 29px;
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.movie__name {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 16px;
+  margin: 0;
+}
+
+.movie__like-button {
+  border: none;
+  width: 24px;
+  height: 24px;
+  background-color: #f4f4f4;
+  font-size: 0;
+  display: block;
+  background-image: url('../../images/like-icon.svg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  box-sizing: border-box;
+  border-radius: 50%;
+}
+
+.movie__like-button:active {
+  opacity: 1;
+  background-image: url('../../images/like-icon-active.svg');
+}
+
+.movie__duration {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 11px;
+  line-height: 13px;
+  color: #a0a0a0;
+}
