@@ -35,6 +35,10 @@
   border-radius: 50%;
 }
 
+.movie__like-button_type_saved {
+  display: none;
+}
+
 .movie__like-button:active {
   opacity: 1;
   background-image: url('../../images/like-icon-active.svg');

@@ -1,0 +1,12 @@
+.saved-movies-page {
+  font-family: 'Inter', 'Arial', sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #fafafa;
+  color: #000000;
+}
+
+.saved-movies-page__main {
+  min-height: 70vh;
+}

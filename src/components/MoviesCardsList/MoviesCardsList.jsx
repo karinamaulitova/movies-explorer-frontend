@@ -1,8 +1,7 @@
 import React from 'react';
 import MoviesCard from '../MoviesCard/MoviesCard';
-import movies from './movies-mock';
 
-function MoviesCardsList() {
+function MoviesCardsList({movies, savedMovieModificator}) {
   return (
     <section className='movies' aria-label='Карточки с фильмами'>
       <ul className='movies__list' id='movies-list'>
@@ -10,10 +9,11 @@ function MoviesCardsList() {
           <MoviesCard
             key={movie._id}
             card={movie}
+            savedMovieModificator={savedMovieModificator}
           />
         ))}
       </ul>
-      <button className='movies__button' type='button'>Ещё</button>
+      <button className={`movies__button movies__button${savedMovieModificator}`} type='button'>Ещё</button>
     </section>
   );
 }

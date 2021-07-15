@@ -8,7 +8,6 @@
 .movies__list {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(4, 1fr);
   gap: 38px 20px;
   padding: 80px 0 0;
   border-top: 1px solid #E8E8E8;
@@ -30,6 +29,10 @@
   box-sizing: border-box;
   min-width: 320px;
   margin-top: 50px;
+}
+
+.movies__button_type_saved {
+  display: none;
 }
 
 @media screen and (max-width: 1279px) {

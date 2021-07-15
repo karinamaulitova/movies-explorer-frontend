@@ -4,21 +4,23 @@ import Navigation from '../Navigation/Navigation';
 import SearchForm from '../SearchForm/SearchForm';
 import Footer from '../Footer/Footer';
 import MoviesCardsList from '../MoviesCardsList/MoviesCardsList';
-import movies from '../../utils/movies-mock';
+import savedMovies from '../../utils/saved-movies-mock';
 
-function MoviesPage() {
+function SavedMoviesPage() {
+
+
   return (
-    <div className='movies-page'>
+    <div className='saved-movies-page'>
       <Header>
-        <Navigation />
+          <Navigation />
       </Header>
-      <main className='movies-page__main'>
-        <SearchForm />
-        <MoviesCardsList movies={movies} />
+      <main className='saved-movies-page__main'>
+      <SearchForm />
+          <MoviesCardsList movies={savedMovies} savedMovieModificator='_type_saved'/>
       </main>
       <Footer />
     </div>
   );
 }
 
-export default MoviesPage;
+export default SavedMoviesPage;
