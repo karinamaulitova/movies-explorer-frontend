@@ -47,6 +47,12 @@
   margin: 0;
 }
 
+.profile-edit__input-error {
+  color: #ee3465;
+  font-size: 11px;
+  line-height: 13px;
+}
+
 .profile-edit__button {
   font-style: normal;
   font-weight: normal;
