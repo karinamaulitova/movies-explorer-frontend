@@ -20,4 +20,5 @@
 @import url('../components/ProfilePage/ProfilePage.css');
 @import url('../components/ProfileEditForm/ProfileEditForm.css');
 @import url('../components/AuthForm/AuthForm.css');
-@import url('../components/RegisterPage/Register.css');
+@import url('../components/RegisterPage/RegisterPage.css');
+@import url('../components/LoginPage/LoginPage.css');

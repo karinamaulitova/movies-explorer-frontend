@@ -1,5 +1,6 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
+import LoginPage from '../LoginPage/LoginPage';
 import MainPage from '../MainPage/MainPage';
 import MoviesPage from '../MoviesPage/MoviesPage';
 import ProfilePage from '../ProfilePage/ProfilePage';
@@ -23,6 +24,9 @@ function App() {
     </Route>
     <Route exact path='/signup'>
       <RegisterPage />
+    </Route>
+    <Route exact path='/signin'>
+      <LoginPage />
     </Route>
     </Switch>
   );

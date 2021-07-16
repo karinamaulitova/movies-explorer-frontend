@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-function AuthForm({ title, id, name, submitText, children }) {
+function AuthForm({ title, id, name, submitText, children, buttonClass }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -52,7 +52,7 @@ function AuthForm({ title, id, name, submitText, children }) {
           />
           <span className='auth-form__input-error' />
         </div>
-        <button className='auth-form__button' type='submit'>
+        <button className={`auth-form__button ${buttonClass}`} type='submit'>
           {submitText}
         </button>
       </form>
