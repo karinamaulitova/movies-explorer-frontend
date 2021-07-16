@@ -16,7 +16,7 @@ function SavedMoviesPage() {
       </Header>
       <main className='saved-movies-page__main'>
       <SearchForm />
-          <MoviesCardsList movies={savedMovies} savedMovieModificator='_type_saved'/>
+          <MoviesCardsList isSavedMovie={true} movies={savedMovies} savedMovieModificator='_type_saved'/>
       </main>
       <Footer />
     </div>

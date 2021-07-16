@@ -33,16 +33,41 @@
   background-repeat: no-repeat;
   box-sizing: border-box;
   border-radius: 50%;
+  cursor: pointer;
+  transition: background-image 0.4s linear;
+}
+
+.movie__delete-button {
+  border: none;
+  width: 24px;
+  height: 24px;
+  background-color: #f4f4f4;
+  font-size: 0;
+  display: block;
+  background-image: url('../../images/cross-icon.svg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  box-sizing: border-box;
+  background-size: 9px;
+  border-radius: 50%;
+  visibility: hidden;
+  cursor: pointer;
+  transition: visibility 0.5s linear;
+}
+
+.movie:hover .movie__delete-button {
+  visibility: visible;
 }
 
 .movie__like-button_type_saved {
   display: none;
 }
 
-.movie__like-button:active {
+.movie__like-button_active {
   opacity: 1;
   background-image: url('../../images/like-icon-active.svg');
 }
+
 
 .movie__duration {
   font-style: normal;

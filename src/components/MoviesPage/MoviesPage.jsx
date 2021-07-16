@@ -15,7 +15,7 @@ function MoviesPage() {
       </Header>
       <main className='movies-page__main'>
         <SearchForm />
-        <MoviesCardsList movies={movies} />
+        <MoviesCardsList movies={movies} isSavedMovie={false}/>
       </main>
       <Footer />
     </div>
