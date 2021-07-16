@@ -2,7 +2,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 74px;
 }
 
 .profile-edit__heading {
@@ -55,6 +54,30 @@
   line-height: 16px;
   text-align: center;
   border: none;
-  margin: 220px 0 16px;
+  margin: 204px 0 16px;
   background-color: transparent;
+}
+
+@media screen and (max-width: 1279px) {
+  .profile-edit__form {
+    padding-top: 80px;
+  }
+
+  .profile-edit__button {
+    margin: 194px 0 16px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .profile-edit__form {
+    padding-top: 64px;
+  }
+
+  .profile-edit__input-wrapper {
+    min-width: 260px;
+  }
+
+  .profile-edit__button {
+    margin: 360px 0 16px;
+  }
 }
