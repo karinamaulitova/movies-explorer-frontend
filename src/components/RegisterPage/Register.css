@@ -25,13 +25,8 @@
 }
 
 .register-page__link {
-  font-style: normal;
-  font-weight: normal;
-  font-size: 14px;
-  line-height: 17px;
   color: #3456f3;
   text-decoration: none;
-  margin: 0;
 }
 
 .register-page__logo {
@@ -40,12 +35,17 @@
 
 @media screen and (max-width: 1279px) {
   .register-page__main {
-    padding: 235px 0 270px;
+    padding: 235px 0;
   }
 }
 
 @media screen and (max-width: 767px) {
   .register-page__main {
-    padding: 70px 0 40px;
+    padding: 56px 0 30px;
+  }
+
+  .register-page__link-text {
+    font-size: 12px;
+    line-height: 15px;
   }
 }
