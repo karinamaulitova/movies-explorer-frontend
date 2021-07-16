@@ -7,7 +7,7 @@ function MoviesCardsList({ movies, savedMovieModificator, isSavedMovie }) {
       <ul className='movies__list' id='movies-list'>
         {movies?.map((movie) => (
           <MoviesCard
-            key={movie._id}
+            key={movie.id}
             card={movie}
             savedMovieModificator={savedMovieModificator}
             isSavedMovie={isSavedMovie}
