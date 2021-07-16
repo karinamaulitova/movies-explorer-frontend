@@ -3,6 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 import LoginPage from '../LoginPage/LoginPage';
 import MainPage from '../MainPage/MainPage';
 import MoviesPage from '../MoviesPage/MoviesPage';
+import PageNotFound from '../PageNotFound/PageNotFound';
 import ProfilePage from '../ProfilePage/ProfilePage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import SavedMoviesPage from '../SavedMoviesPage/SavedMoviesPage';
@@ -27,6 +28,9 @@ function App() {
     </Route>
     <Route exact path='/signin'>
       <LoginPage />
+    </Route>
+    <Route path='*'>
+      <PageNotFound />
     </Route>
     </Switch>
   );
