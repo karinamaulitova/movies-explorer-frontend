@@ -9,7 +9,7 @@ function PageNotFound() {
           <h1 className='page-404__heading'>404</h1>
           <p className='page-404__text'>Страница не найдена</p>
           </div>
-        <Link to='/' className='page-404__link'>
+        <Link to='/' className='page-404__link hover'>
         Назад
         </Link>
       </main>

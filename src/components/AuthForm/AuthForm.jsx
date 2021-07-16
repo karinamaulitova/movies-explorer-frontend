@@ -52,7 +52,7 @@ function AuthForm({ title, id, name, submitText, children, buttonClass }) {
           />
           <span className='auth-form__input-error' />
         </div>
-        <button className={`auth-form__button ${buttonClass}`} type='submit'>
+        <button className={`auth-form__button ${buttonClass} hover_type_blue-button`} type='submit'>
           {submitText}
         </button>
       </form>

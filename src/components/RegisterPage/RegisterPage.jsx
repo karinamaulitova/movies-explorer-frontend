@@ -36,7 +36,7 @@ function RegisterPage() {
         </AuthForm>
         <p className='register-page__link-text'>
           Уже зарегистрированы?&nbsp;
-          <Link to='/signin' className='register-page__link'>
+          <Link to='/signin' className='register-page__link hover'>
             Войти
           </Link>
         </p>

@@ -17,7 +17,7 @@ function LoginPage() {
         />
         <p className='login-page__link-text'>
           Ещё не зарегистрированы?&nbsp;
-          <Link to='/signup' className='login-page__link'>
+          <Link to='/signup' className='login-page__link hover'>
             Регистрация
           </Link>
         </p>

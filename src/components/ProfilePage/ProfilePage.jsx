@@ -12,7 +12,7 @@ function ProfilePage() {
       </Header>
       <main className='profile-page__main'>
         <ProfileEditForm />
-        <Link to='/signin' className='profile-page__exit-link'>
+        <Link to='/signin' className='profile-page__exit-link hover'>
           Выйти из аккаунта
         </Link>
       </main>

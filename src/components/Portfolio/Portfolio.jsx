@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 function Portfolio() {
   return (
     <section className='portfolio'>
@@ -9,7 +8,9 @@ function Portfolio() {
         <li className='portfolio__link-item'>
           <a
             href='https://how-to-learn-karina.netlify.app/'
-            className='portfolio__link'
+            className='portfolio__link hover_type_no-underline'
+            target='_blank'
+            rel='noreferrer'
           >
             <p className='portfolio__link-text'>Статичный сайт</p>
             <p className='portfolio__link-text'>↗</p>
@@ -18,7 +19,9 @@ function Portfolio() {
         <li className='portfolio__link-item'>
           <a
             href='https://karinamaulitova.github.io/russian-travel/index.html'
-            className='portfolio__link'
+            className='portfolio__link hover_type_no-underline'
+            target='_blank'
+            rel='noreferrer'
           >
             <p className='portfolio__link-text'>Адаптивный сайт</p>
             <p className='portfolio__link-text'>↗</p>
@@ -27,7 +30,9 @@ function Portfolio() {
         <li className='portfolio__link-item'>
           <a
             href='https://karina.mesto.students.nomoredomains.club/'
-            className='portfolio__link'
+            className='portfolio__link hover_type_no-underline'
+            target='_blank'
+            rel='noreferrer'
           >
             <p className='portfolio__link-text'>Одностраничное приложение</p>
             <p className='portfolio__link-text'>↗</p>

@@ -11,10 +11,10 @@ function MainPage() {
   return (
     <div className='main-page'>
       <Header>
-        <Link className='header__link' to='/signup'>
+        <Link className='header__link hover' to='/signup'>
           Регистрация
         </Link>
-        <Link className='header__login-button' to='/signin'>
+        <Link className='header__login-button hover_type_blue-button' to='/signin'>
           Войти
         </Link>
       </Header>

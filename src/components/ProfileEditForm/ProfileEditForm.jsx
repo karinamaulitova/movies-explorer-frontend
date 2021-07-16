@@ -53,7 +53,7 @@ function ProfileEditForm() {
           />
         </div>
         <span className='profile-edit__input-error' />
-        <button className='profile-edit__button' type='submit'>
+        <button className='profile-edit__button hover' type='submit'>
           Редактировать
         </button>
       </form>

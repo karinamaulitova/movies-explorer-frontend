@@ -13,7 +13,7 @@ function MoviesCardsList({movies, savedMovieModificator}) {
           />
         ))}
       </ul>
-      <button className={`movies__button movies__button${savedMovieModificator}`} type='button'>Ещё</button>
+      <button className={`movies__button movies__button${savedMovieModificator} hover_type_light-button`} type='button'>Ещё</button>
     </section>
   );
 }
