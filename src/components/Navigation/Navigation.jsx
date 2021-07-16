@@ -20,6 +20,7 @@ function Navigation() {
           isNavigationOpen ? 'nav__content nav__content_open' : 'nav__content'
         }
       >
+        <div className='nav__list-wrapper'>
         <button
           className={
             isNavigationOpen
@@ -31,7 +32,7 @@ function Navigation() {
         />
         <ul className='nav__list'>
           <li className='nav__item nav__item_type_burger-menu'>
-            <NavLink className='nav__link hover_type_no-underline' exact to='/'>
+            <NavLink className='nav__link hover' exact to='/'>
               Главная
             </NavLink>
           </li>
@@ -54,6 +55,7 @@ function Navigation() {
             alt='Иконка профиля'
           />
         </NavLink>
+        </div>
       </nav>
       <button
         className='nav__burger-button hover_type_no-underline'
