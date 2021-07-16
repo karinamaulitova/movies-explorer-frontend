@@ -6,6 +6,7 @@ import Footer from '../Footer/Footer';
 import MoviesCardsList from '../MoviesCardsList/MoviesCardsList';
 import movies from '../../utils/movies-mock';
 
+
 function MoviesPage() {
   return (
     <div className='movies-page'>
