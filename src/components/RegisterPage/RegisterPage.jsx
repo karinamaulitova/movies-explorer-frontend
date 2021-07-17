@@ -30,6 +30,7 @@ function RegisterPage() {
               required
               value={name}
               onChange={handleNameChange}
+              placeholder='Имя'
             />
             <span className='auth-form__input-error' />
           </div>

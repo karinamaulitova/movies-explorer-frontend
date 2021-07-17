@@ -17,6 +17,7 @@ function SearchForm() {
             type='search'
             placeholder='Фильмы'
             value={value}
+            required
             onChange={handleChange}
           />
           <button type='submit' className='search-form__button hover_type_svg'>

@@ -16,7 +16,9 @@ function AboutMe() {
             <a className='about-me__link hover' href='https://github.com/karinamaulitova' target='_blank' rel="noreferrer">Github</a>
         </div>
       </div>
+      <div className='about-me__photo-wrapper'>
       <img className='about-me__photo' src={photo} alt='Фото Карины'/>
+      </div>
       </div>
       <Portfolio />
     </section>

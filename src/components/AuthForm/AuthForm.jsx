@@ -34,6 +34,7 @@ function AuthForm({ title, id, name, submitText, children, buttonClass }) {
             required
             value={email}
             onChange={handleEmailChange}
+            placeholder='E-mail'
           />
           <span className='auth-form__input-error' />
         </div>
@@ -49,6 +50,7 @@ function AuthForm({ title, id, name, submitText, children, buttonClass }) {
             required
             value={password}
             onChange={handlePasswordChange}
+            placeholder='Пароль'
           />
           <span className='auth-form__input-error' />
         </div>

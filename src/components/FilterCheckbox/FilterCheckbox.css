@@ -2,6 +2,7 @@
   cursor: pointer;
   box-sizing: border-box;
   display: flex;
+  justify-self: flex-end;
 }
 .filter-checkbox__switch {
   display: inline-block;

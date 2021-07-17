@@ -51,4 +51,8 @@
     font-size: 12px;
     line-height: 15px;
   }
+
+  .register-page__logo {
+    align-self: center;
+  }
 }

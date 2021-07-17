@@ -78,6 +78,7 @@
 @media screen and (max-width: 767px) {
   .auth-form__form {
     padding-top: 60px;
+    align-items: center;
   }
 
   .auth-form__input {
