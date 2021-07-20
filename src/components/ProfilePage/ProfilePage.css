@@ -1,0 +1,39 @@
+.profile-page {
+  font-family: 'Inter', 'Arial', sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fafafa;
+  color: #000000;
+}
+
+.profile-page__main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 75px 0;
+}
+
+.profile-page__exit-link {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 16px;
+  text-align: center;
+  color: #ee3465;
+  text-decoration: none;
+  margin: 0;
+}
+
+@media screen and (max-width: 1279px) {
+  .profile-page__main {
+    padding: 235px 0 270px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .profile-page__main {
+    padding: 70px 0 40px;
+  }
+}

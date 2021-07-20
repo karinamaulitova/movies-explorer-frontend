@@ -1,0 +1,132 @@
+.about-project {
+  padding: 110px 70px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 70px 40px;
+}
+
+.about-project__title {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 22px;
+  line-height: 27px;
+  letter-spacing: -0.04em;
+  margin: 0;
+  padding-bottom: 23px;
+
+  border-bottom: 1px solid #000000;
+
+  grid-row: 1;
+  grid-column: 1/-1;
+}
+
+.about-project__description-title {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 24px;
+  letter-spacing: -0.04em;
+
+  margin: 0 0 26px 0;
+}
+
+.about-project__description-text {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 20px;
+
+  max-width: 450px;
+  margin: 0;
+}
+
+.about-project__duration-container {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+
+  grid-column: 1/-1;
+
+  padding-top: 40px;
+}
+
+.about-project__duration-bar {
+  text-align: center;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  background: #f2f2f2;
+  padding: 10px 0;
+}
+
+.about-project__duration-bar_type_blue {
+  color: #ffffff;
+  background-color: #3456f3;
+}
+
+.about-project__duration-text {
+  text-align: center;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  color: #a0a0a0;
+}
+
+@media screen and (max-width: 1279px) {
+  .about-project {
+    padding: 90px 50px;
+    gap: 70px 30px;
+  }
+
+  .about-project__description-title {
+    margin: 0 0 22px 0;
+  }
+
+  .about-project__duration-container {
+    padding-top: 23px;
+    grid-template-columns: minmax(140px, 1fr) minmax(528px, 3fr);
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .about-project {
+    padding: 70px 18px;
+    grid-template-columns: 1fr;
+    gap: 56px 0;
+  }
+
+  .about-project__title {
+    font-size: 18px;
+    line-height: 22px;
+
+    padding-bottom: 28px;
+  }
+
+  .about-project__description-title {
+    font-size: 18px;
+    line-height: 22px;
+    margin: 0px 0 16px 0;
+  }
+
+  .about-project__description-text {
+    font-size: 11px;
+    line-height: 16px;
+    font-weight: normal;
+  }
+
+  .about-project__duration-container {
+    padding-top: 0;
+    grid-template-columns: minmax(100px, 1fr) minmax(184px, 2fr);
+  }
+
+  .about-project__duration-bar {
+    font-size: 11px;
+    line-height: 13px;
+  }
+
+  .about-project__duration-text {
+    font-size: 11px;
+    line-height: 13px;
+  }
+}

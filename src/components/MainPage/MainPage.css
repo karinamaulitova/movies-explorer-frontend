@@ -1,0 +1,8 @@
+.main-page {
+  font-family: 'Inter', 'Arial', sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #fafafa;
+  color: #000000;
+}

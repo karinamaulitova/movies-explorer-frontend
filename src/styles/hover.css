@@ -1,0 +1,35 @@
+.hover,
+.hover_type_no-underline,
+.hover_type_blue-button,
+.hover_type_svg,
+.hover_type_svg svg path,
+.hover_type_light-button {
+  transition: all 0.6s ease;
+}
+
+.hover:hover {
+  opacity: 0.6;
+  text-decoration: underline;
+}
+
+.hover_type_no-underline:hover {
+  opacity: 0.6;
+}
+
+.hover_type_blue-button:hover {
+  color: #3456f3;
+  background-color: #ffffff;
+}
+
+.hover_type_svg:hover {
+  background-color: #ffffff;
+}
+
+.hover_type_svg:hover svg path {
+  fill: #3456f3;
+}
+
+.hover_type_light-button:hover {
+  color: #3456f3;
+  border: 1px solid #3456f3;
+}
