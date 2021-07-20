@@ -1,14 +1,6 @@
 import React, { useState } from 'react';
 
-function AuthForm({
-  title,
-  id,
-  name,
-  submitText,
-  children,
-  buttonClass,
-  onSubmit,
-}) {
+function LoginForm({ onSubmit }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -26,23 +18,22 @@ function AuthForm({
   }
 
   return (
-    <section className='auth-form'>
-      <h2 className='auth-form__heading'>{title}</h2>
+    <section className='login-form'>
+      <h2 className='login-form__heading'>Рады видеть!</h2>
       <form
-        className='auth-form__form'
-        id={`${id}-form`}
-        name={name}
+        className='login-form__form'
+        id='login-from'
+        name='login'
         noValidate
         onSubmit={handleSubmit}
       >
-        {children}
-        <div className='auth-form__input-wrapper'>
-          <label className='auth-form__label' htmlFor={`${id}-email`}>
+        <div className='login-form__input-wrapper'>
+          <label className='login-form__label' htmlFor='login-email'>
             E-mail
           </label>
           <input
-            className='auth-form__input'
-            id={`${id}-email`}
+            className='login-form__input'
+            id='login-email'
             type='email'
             name='email'
             required
@@ -50,15 +41,15 @@ function AuthForm({
             onChange={handleEmailChange}
             placeholder='E-mail'
           />
-          <span className='auth-form__input-error' />
+          <span className='login-form__input-error' />
         </div>
-        <div className='auth-form__input-wrapper'>
-          <label className='auth-form__label' htmlFor={`${id}-password`}>
+        <div className='login-form__input-wrapper'>
+          <label className='login-form__label' htmlFor='login-password'>
             Пароль
           </label>
           <input
-            className='auth-form__input'
-            id={`${id}-password`}
+            className='login-form__input'
+            id='login-password'
             type='password'
             name='password'
             required
@@ -66,17 +57,14 @@ function AuthForm({
             onChange={handlePasswordChange}
             placeholder='Пароль'
           />
-          <span className='auth-form__input-error' />
+          <span className='login-form__input-error' />
         </div>
-        <button
-          className={`auth-form__button ${buttonClass} hover_type_blue-button`}
-          type='submit'
-        >
-          {submitText}
+        <button className='login-form__button hover_type_blue-button' type='submit'>
+          Войти
         </button>
       </form>
     </section>
   );
 }
 
-export default AuthForm;
+export default LoginForm;
