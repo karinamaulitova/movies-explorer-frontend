@@ -1,10 +1,18 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, {useEffect} from 'react';
+import { Link, useHistory } from 'react-router-dom';
 import logo from '../../images/logo.svg';
 import * as auth from '../../utils/auth';
 import RegisterForm from '../RegisterForm/RegisterForm';
 
-function RegisterPage({ onRegister }) {
+function RegisterPage({ onRegister, loggedIn }) {
+
+  const history = useHistory();
+
+  useEffect(()=>{
+    if(loggedIn){
+      history.replace('/movies')
+    }
+  }, [history,loggedIn])
   
   function handleSubmit(data) {
     const { name, email, password } = data;

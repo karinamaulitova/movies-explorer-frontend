@@ -1,10 +1,18 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { Link, useHistory } from 'react-router-dom';
 import LoginForm from '../LoginForm/LoginForm';
 import logo from '../../images/logo.svg';
 import * as auth from '../../utils/auth';
 
-function LoginPage({ onLoggedIn }) {
+function LoginPage({ onLoggedIn, loggedIn }) {
+
+  const history = useHistory();
+
+  useEffect(()=>{
+    if(loggedIn){
+      history.replace('/movies')
+    }
+  },[history,loggedIn])
   
   function handleSubmit({ email, password }) {
     if (!email || !password) {

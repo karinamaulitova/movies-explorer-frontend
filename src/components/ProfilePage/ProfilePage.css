@@ -24,6 +24,8 @@
   color: #ee3465;
   text-decoration: none;
   margin: 0;
+  border: none;
+  background-color: transparent;
 }
 
 @media screen and (max-width: 1279px) {

@@ -8,38 +8,42 @@ import ProfilePage from '../ProfilePage/ProfilePage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import SavedMoviesPage from '../SavedMoviesPage/SavedMoviesPage';
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
+import Preloader from '../Preloader/Preloader';
 import * as auth from '../../utils/auth';
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 import MainApi from '../../utils/MainApi';
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
+  const [isAuthChecked, setIsAuthChecked] = useState(false);
   const [currentUser, setCurrentUser] = useState({});
 
   const history = useHistory();
 
   const handleLoggedIn = () => {
     setLoggedIn(true);
-    history.replace('/movies');
   };
 
-  // const handleRegister = () => {
-  //   history.replace('/signin');
-  // };
+  const handleLoggedOut = () => {
+    setLoggedIn(false);
+    history.replace('/');
+  }
 
   useEffect(() => {
+    setIsAuthChecked(false)
     auth
       .checkToken()
       .then(() => {
         setLoggedIn(true);
-        history.replace('/movies');
       })
       .catch(() => {
         setLoggedIn(false);
+      }).finally(() => {
+        setIsAuthChecked(true)
       });
-  }, [history, loggedIn]);
+  }, []);
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (loggedIn) {
       MainApi.getUserInfo()
         .then((data) => {
@@ -51,11 +55,17 @@ function App() {
     }
   }, [loggedIn]);
 
+  if(!isAuthChecked){
+    return <div className='fullscreen-container'>
+    <Preloader/>
+    </div>
+  }
+
   return (
     <CurrentUserContext.Provider value={{ ...currentUser }}>
       <Switch>
         <Route exact path='/'>
-          <MainPage />
+          <MainPage loggedIn={loggedIn} />
         </Route>
         <ProtectedRoute
           exact
@@ -74,12 +84,14 @@ function App() {
           path='/profile'
           loggedIn={loggedIn}
           component={ProfilePage}
+          onLoggedOut={handleLoggedOut}
+          onCurrentUserDataChange={setCurrentUser}
         />
         <Route exact path='/signup'>
-          <RegisterPage onRegister={handleLoggedIn} />
+          <RegisterPage onRegister={handleLoggedIn} loggedIn={loggedIn} />
         </Route>
         <Route exact path='/signin'>
-          <LoginPage onLoggedIn={handleLoggedIn} />
+          <LoginPage onLoggedIn={handleLoggedIn} loggedIn={loggedIn} />
         </Route>
         <Route path='*'>
           <PageNotFound />
