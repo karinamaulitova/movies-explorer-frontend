@@ -8,14 +8,13 @@ function LoginPage({ onLoggedIn }) {
   
   function handleSubmit({ email, password }) {
     if (!email || !password) {
-      return;
+      return Promise.reject();
     }
-    auth
+    return auth
       .authorize(email, password)
       .then(() => {
         onLoggedIn();
       })
-      .catch((err) => console.log(err));
   }
 
   return (

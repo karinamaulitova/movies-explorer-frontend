@@ -8,12 +8,11 @@ function RegisterPage({ onRegister }) {
   
   function handleSubmit(data) {
     const { name, email, password } = data;
-    auth
+    return auth
       .register(name, email, password)
       .then(() => {
         onRegister();
-      })
-      .catch((err) => console.log(err));
+      });
   }
   return (
     <div className='register-page'>

@@ -1,25 +1,24 @@
 import React, { useState } from 'react';
+import { useFormWithValidation } from '../../utils/formValidation';
 
 function RegisterForm({ onSubmit }) {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [name, setName] = useState('');
+  const { values, handleChange, resetForm, errors, isValid } =
+    useFormWithValidation();
 
-  function handleEmailChange(e) {
-    setEmail(e.target.value);
-  }
-
-  function handlePasswordChange(e) {
-    setPassword(e.target.value);
-  }
-
-  function handleNameChange(e) {
-    setName(e.target.value);
-  }
+  const [serverErrorMessage, setServerErrorMessage] = useState(null);   
 
   function handleSubmit(e) {
     e.preventDefault();
-    onSubmit({ email, password, name });
+    setServerErrorMessage(null);
+    Promise.resolve(
+      onSubmit({
+        email: values.email,
+        password: values.password,
+        name: values.name,
+      })
+    ).then(resetForm).catch(error => {
+      setServerErrorMessage(error.message)
+    });
   }
 
   return (
@@ -42,11 +41,12 @@ function RegisterForm({ onSubmit }) {
             type='text'
             name='name'
             required
-            value={name}
-            onChange={handleNameChange}
+            value={values.name ?? ''}
+            onChange={handleChange}
+            pattern='[a-zA-Zа-яА-ЯёЁ\s\-]+$'
             placeholder='Имя'
           />
-          <span className='register-form__input-error' />
+          <span className='register-form__error'>{errors.name}</span>
         </div>
         <div className='register-form__input-wrapper'>
           <label className='register-form__label' htmlFor='register-email'>
@@ -58,11 +58,11 @@ function RegisterForm({ onSubmit }) {
             type='email'
             name='email'
             required
-            value={email}
-            onChange={handleEmailChange}
+            value={values.email ?? ''}
+            onChange={handleChange}
             placeholder='E-mail'
           />
-          <span className='register-form__input-error' />
+          <span className='register-form__error'>{errors.email}</span>
         </div>
         <div className='register-form__input-wrapper'>
           <label className='register-form__label' htmlFor='register-password'>
@@ -74,18 +74,22 @@ function RegisterForm({ onSubmit }) {
             type='password'
             name='password'
             required
-            value={password}
-            onChange={handlePasswordChange}
+            value={values.password ?? ''}
+            onChange={handleChange}
             placeholder='Пароль'
           />
-          <span className='auth-form__input-error' />
+          <span className='register-form__error'>{errors.password}</span>
         </div>
+        <div className='register-form__button-wrapper'>
+        <span className='register-form__error register-form__error_type_server'>{serverErrorMessage}</span>
         <button
           className='register-form__button hover_type_blue-button'
+          disabled={!isValid}
           type='submit'
         >
           Зарегистрироваться
         </button>
+        </div>
       </form>
     </section>
   );

@@ -16,7 +16,7 @@ export const register = (name, email, password) => {
     if (res.ok) {
       return jsonData;
     } else {
-      return Promise.reject(jsonData.error);
+      return Promise.reject(jsonData);
     }
   });
 };
@@ -36,7 +36,7 @@ export const authorize = (email, password) => {
     if (res.ok) {
       return jsonData;
     } else {
-      return Promise.reject(jsonData.error);
+      return Promise.reject(jsonData);
     }
   });
 };

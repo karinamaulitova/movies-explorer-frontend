@@ -23,9 +23,9 @@ function App() {
     history.replace('/movies');
   };
 
-  const handleRegister = () => {
-    history.replace('/signin');
-  };
+  // const handleRegister = () => {
+  //   history.replace('/signin');
+  // };
 
   useEffect(() => {
     auth
@@ -76,7 +76,7 @@ function App() {
           component={ProfilePage}
         />
         <Route exact path='/signup'>
-          <RegisterPage onRegister={handleRegister} />
+          <RegisterPage onRegister={handleLoggedIn} />
         </Route>
         <Route exact path='/signin'>
           <LoginPage onLoggedIn={handleLoggedIn} />

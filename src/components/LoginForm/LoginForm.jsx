@@ -1,20 +1,21 @@
 import React, { useState } from 'react';
+import { useFormWithValidation } from '../../utils/formValidation';
 
 function LoginForm({ onSubmit }) {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const { values, handleChange, resetForm, errors, isValid } =
+    useFormWithValidation();
 
-  function handleEmailChange(e) {
-    setEmail(e.target.value);
-  }
-
-  function handlePasswordChange(e) {
-    setPassword(e.target.value);
-  }
-
+  const [serverErrorMessage, setServerErrorMessage] = useState(null);
   function handleSubmit(e) {
     e.preventDefault();
-    onSubmit({ email, password });
+    setServerErrorMessage(null);
+    Promise.resolve(
+      onSubmit({ email: values.email, password: values.password })
+    )
+      .then(resetForm)
+      .catch((error) => {
+        setServerErrorMessage(error.message);
+      });
   }
 
   return (
@@ -37,11 +38,11 @@ function LoginForm({ onSubmit }) {
             type='email'
             name='email'
             required
-            value={email}
-            onChange={handleEmailChange}
+            value={values.email ?? ''}
+            onChange={handleChange}
             placeholder='E-mail'
           />
-          <span className='login-form__input-error' />
+          <span className='login-form__error'>{errors.email}</span>
         </div>
         <div className='login-form__input-wrapper'>
           <label className='login-form__label' htmlFor='login-password'>
@@ -53,15 +54,24 @@ function LoginForm({ onSubmit }) {
             type='password'
             name='password'
             required
-            value={password}
-            onChange={handlePasswordChange}
+            value={values.password ?? ''}
+            onChange={handleChange}
             placeholder='Пароль'
           />
-          <span className='login-form__input-error' />
+          <span className='login-form__error'>{errors.password}</span>
         </div>
-        <button className='login-form__button hover_type_blue-button' type='submit'>
-          Войти
-        </button>
+        <div className='login-form__button-wrapper'>
+          <span className='login-form__error login-form__error_type_server'>
+            {serverErrorMessage}
+          </span>
+          <button
+            className='login-form__button hover_type_blue-button'
+            disabled={!isValid}
+            type='submit'
+          >
+            Войти
+          </button>
+        </div>
       </form>
     </section>
   );
