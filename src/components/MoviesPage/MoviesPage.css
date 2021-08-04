@@ -1,8 +1,24 @@
 .movies-page {
-    font-family: 'Inter', 'Arial', sans-serif;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    background-color: #fafafa;
-    color: #000000;
+  font-family: 'Inter', 'Arial', sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #fafafa;
+  color: #000000;
+}
+
+.movies-page__error {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 45px;
+  line-height: 50px;
+  text-align: center;
+  letter-spacing: -0.04em;
+}
+
+@media screen and (max-width: 767px) {
+  .movies-page__error {
+    font-size: 25px;
+    line-height: 30px;
   }
+}

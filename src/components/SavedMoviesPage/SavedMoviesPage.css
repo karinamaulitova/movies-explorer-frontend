@@ -10,3 +10,19 @@
 .saved-movies-page__main {
   min-height: 70vh;
 }
+
+.saved-movies-page__error {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 45px;
+  line-height: 50px;
+  text-align: center;
+  letter-spacing: -0.04em;
+}
+
+@media screen and (max-width: 767px) {
+  .saved-movies-page__error {
+    font-size: 25px;
+    line-height: 30px;
+  }
+}

@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
-import { useFormWithValidation } from '../../utils/formValidation';
+import { useFormWithValidation } from '../../utils/useFormWithValidationHook';
 
 function ProfileEditForm({ onUpdateUser }) {
   const currentUser = useContext(CurrentUserContext);

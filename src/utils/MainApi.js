@@ -30,42 +30,30 @@ class Api {
     }).then(handleOriginalResponse);
   }
 
-  createNewCard(newCardData) {
-    return fetch(this._baseUrl + '/cards', {
+  getSavedMovies() {
+    return fetch(this._baseUrl + '/movies', {
+      headers: this._headers,
+      credentials: 'include',
+    }).then(handleOriginalResponse);
+  }
+
+  saveMovie(movieData) {
+    return fetch(this._baseUrl + '/movies', {
       method: 'POST',
       credentials: 'include',
       headers: this._headers,
-      body: JSON.stringify(newCardData),
+      body: JSON.stringify(movieData),
     }).then(handleOriginalResponse);
   }
 
-  deleteCard(cardId) {
-    return fetch(`${this._baseUrl}/cards/${cardId}`, {
+  deleteMovie(movieId) {
+    return fetch(`${this._baseUrl}/movies/${movieId}`, {
       method: 'DELETE',
       credentials: 'include',
       headers: this._headers,
     }).then(handleOriginalResponse);
   }
 
-  setLike(id) {
-    return fetch(`${this._baseUrl}/cards/likes/${id}`, {
-      method: 'PUT',
-      credentials: 'include',
-      headers: this._headers,
-    }).then(handleOriginalResponse);
-  }
-
-  deleteLike(id) {
-    return fetch(`${this._baseUrl}/cards/likes/${id}`, {
-      method: 'DELETE',
-      credentials: 'include',
-      headers: this._headers,
-    }).then(handleOriginalResponse);
-  }
-
-  changeLikeCardStatus(id, isLike) {
-    return isLike ? this.setLike(id) : this.deleteLike(id);
-  }
 }
 
 const MainApi = new Api({
