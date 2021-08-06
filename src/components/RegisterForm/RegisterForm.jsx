@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useFormWithValidation } from '../../utils/useFormWithValidationHook';
 
-function RegisterForm({ onSubmit }) {
+function RegisterForm({ onSubmit, isDisabled }) {
   const { values, handleChange, resetForm, errors, isValid } =
     useFormWithValidation();
 
@@ -45,6 +45,7 @@ function RegisterForm({ onSubmit }) {
             onChange={handleChange}
             pattern='[a-zA-Zа-яА-ЯёЁ\s\-]+$'
             placeholder='Имя'
+            disabled={isDisabled}
           />
           <span className='register-form__error'>{errors.name}</span>
         </div>
@@ -61,6 +62,7 @@ function RegisterForm({ onSubmit }) {
             value={values.email ?? ''}
             onChange={handleChange}
             placeholder='E-mail'
+            disabled={isDisabled}
           />
           <span className='register-form__error'>{errors.email}</span>
         </div>
@@ -77,6 +79,7 @@ function RegisterForm({ onSubmit }) {
             value={values.password ?? ''}
             onChange={handleChange}
             placeholder='Пароль'
+            disabled={isDisabled}
           />
           <span className='register-form__error'>{errors.password}</span>
         </div>

@@ -48,6 +48,10 @@
   box-sizing: border-box;
 }
 
+.register-form__input:disabled {
+  background:  #d3d3d3;
+}
+
 .register-form__error {
   font-style: normal;
   font-weight: normal;

@@ -2,12 +2,17 @@ import React, { useContext, useState } from 'react';
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 import { useFormWithValidation } from '../../utils/useFormWithValidationHook';
 
-function ProfileEditForm({ onUpdateUser }) {
+function ProfileEditForm({ onUpdateUser, isDisabled }) {
   const currentUser = useContext(CurrentUserContext);
   const { values, handleChange, resetForm, errors, isValid } =
     useFormWithValidation({ name: currentUser.name });
   const [isSuccess, setIsSuccess] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
+
+  const handleInputChange = event => {
+    setIsSuccess(false);
+    handleChange(event);
+  }
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -50,7 +55,8 @@ function ProfileEditForm({ onUpdateUser }) {
             maxLength='30'
             pattern='[a-zA-Zа-яА-ЯёЁ\s\-]+$'
             value={values.name ?? ''}
-            onChange={handleChange}
+            onChange={handleInputChange}
+            disabled={isDisabled}
           />
         </div>
         <span className='profile-edit__error'>{errors.name}</span>
@@ -68,7 +74,7 @@ function ProfileEditForm({ onUpdateUser }) {
             name='email'
             required
             value={currentUser.email}
-            onChange={handleChange}
+            onChange={handleInputChange}
             disabled
           />
         </div>
@@ -84,7 +90,7 @@ function ProfileEditForm({ onUpdateUser }) {
             </span>
           )}
           <button
-            disabled={!isValid}
+            disabled={!isValid || currentUser?.name === values.name}
             className='profile-edit__button hover'
             type='submit'
           >

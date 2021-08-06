@@ -1,17 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Header from '../Header/Header';
 import ProfileEditForm from '../ProfileEditForm/ProfileEditForm';
 import MainApi from '../../utils/MainApi';
 import * as auth from '../../utils/auth';
+import Preloader from '../Preloader/Preloader';
 
 function ProfilePage({ onLoggedOut, onCurrentUserDataChange, loggedIn }) {
+  const [isLoading, setIsLoading] = useState(false);
+
   function handleUpdateUserInfo(data) {
-    MainApi.changeUserInfo(data)
+    setIsLoading(true);
+    return MainApi.changeUserInfo(data)
       .then((data) => {
         onCurrentUserDataChange(data.data);
       })
-      .catch((err) => {
-        console.log(err);
+      .finally(() => {
+        setIsLoading(false);
       });
   }
 
@@ -23,12 +27,16 @@ function ProfilePage({ onLoggedOut, onCurrentUserDataChange, loggedIn }) {
   return (
     <div className='profile-page'>
       <Header loggedIn={loggedIn} />
-      <main className='profile-page__main'>
-        <ProfileEditForm onUpdateUser={handleUpdateUserInfo} />
-        <button onClick={signOut} className='profile-page__exit-link hover'>
-          Выйти из аккаунта
-        </button>
-      </main>
+      {isLoading &&
+        <div className='profile-page__overlay'>
+          <Preloader />
+        </div>}
+            <main className='profile-page__main'>
+          <ProfileEditForm isDisabled={isLoading} onUpdateUser={handleUpdateUserInfo} />
+          <button onClick={signOut} className='profile-page__exit-link hover'>
+            Выйти из аккаунта
+          </button>
+        </main>
     </div>
   );
 }

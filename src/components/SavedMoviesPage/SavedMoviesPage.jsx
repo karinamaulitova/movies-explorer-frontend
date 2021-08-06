@@ -11,14 +11,13 @@ function SavedMoviesPage({ loggedIn }) {
     isNothingFound,
     filterText,
     setFilterText,
-    isChecked,
-    setIsChecked,
+    isShortFilms,
+    setIsShortFilms,
     deleteSavedMovieById,
   } = useSavedMovies();
 
-  function handleFormSubmit({text, isChecked}) {
+  function handleFormSubmit({text}) {
     setFilterText(text);
-    setIsChecked(isChecked);
   }
 
   return (
@@ -26,8 +25,10 @@ function SavedMoviesPage({ loggedIn }) {
       <Header loggedIn={loggedIn} />
       <main className='saved-movies-page__main'>
         <SearchForm
-          initialValues={{ filterText, isChecked }}
+          initialValues={{ filterText}}
           onSubmit={handleFormSubmit}
+          isShortFilms={isShortFilms}
+          setIsShortFilms={setIsShortFilms}
         />
          {isNothingFound ? (
           <p className='saved-movies-page__error'>Ничего не найдено</p>

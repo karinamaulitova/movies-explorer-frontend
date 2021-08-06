@@ -13,9 +13,9 @@ function MoviesCardsList({ movies, savedMovieModificator, isSavedMovie, onLoadMo
             card={movie}
             savedMovieModificator={savedMovieModificator}
             isSavedMovie={isSavedMovie}
-            onSave={() => onSaveMovie(movie.id)}
-            onDelete={() => onDeleteMovie(movie.id)}
-            onSavedDelete={() => onDeleteSavedMovie(movie.movieId)}
+            onSave={onSaveMovie}
+            onDelete={onDeleteMovie}
+            onSavedDelete={onDeleteSavedMovie}
           />
         ))}
       </ul>

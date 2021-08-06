@@ -1,21 +1,20 @@
 import React, { useState } from 'react';
 import FilterCheckbox from '../FilterCheckbox/FilterCheckbox';
 
-function SearchForm({ onSubmit, initialValues = {} }) {
+function SearchForm({ onSubmit, initialValues = {}, isShortFilms, setIsShortFilms, isDisabled }) {
   const [text, setText] = useState(initialValues.filterText ?? '');
-  const [isChecked, setIsChecked] = useState(initialValues.isShortFilm ?? '');
 
   function handleInputChange(e) {
     setText(e.target.value);
   }
 
   function handleCheckboxChange(e) {
-    setIsChecked(e.target.checked)
+    setIsShortFilms(e.target.checked)
   }
 
   function handleSubmit(e) {
     e.preventDefault();
-    onSubmit({text, isChecked});
+    onSubmit({text});
   }
   return (
     <section className='search-form'>
@@ -28,6 +27,7 @@ function SearchForm({ onSubmit, initialValues = {} }) {
             value={text}
             required
             onChange={handleInputChange}
+            disabled={isDisabled}
           />
           <button type='submit' className='search-form__button hover_type_svg'>
             <svg
@@ -47,7 +47,7 @@ function SearchForm({ onSubmit, initialValues = {} }) {
             </svg>
           </button>
         </div>
-        <FilterCheckbox  checked={isChecked} onChange={handleCheckboxChange} />
+        <FilterCheckbox  checked={isShortFilms} onChange={handleCheckboxChange} />
       </form>
     </section>
   );

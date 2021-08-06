@@ -17,6 +17,19 @@ function MoviesCard({ card, isSavedMovie, onSave, onDelete, onSavedDelete }) {
   const movieLikeButtonClassName = `movie__like-button ${
     saved ? 'movie__like-button_active' : ''
   }`;
+
+  function handleSavedDelete() {
+    onSavedDelete(card.movieId)
+  }
+
+  function handleDelete() {
+    onDelete(card.id)
+  }
+
+  function handleSave() {
+    onSave(card.id)
+  }
+
   return (
     <li className='movie'>
       <a className='movie__trailer-link' href={trailerLink}>
@@ -28,13 +41,13 @@ function MoviesCard({ card, isSavedMovie, onSave, onDelete, onSavedDelete }) {
           <button
             className='movie__delete-button'
             type='button'
-            onClick={onSavedDelete}
+            onClick={handleSavedDelete}
           />
         ) : (
           <button
             className={movieLikeButtonClassName}
             type='button'
-            onClick={saved ? onDelete : onSave }
+            onClick={saved ? handleDelete : handleSave }
           />
         )}
       </div>

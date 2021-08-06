@@ -1,10 +1,7 @@
 import { useEffect, useState } from 'react';
 import MainApi from './MainApi';
 import MoviesApi from './MoviesApi';
-
-const MOVIES_KEY = 'movies';
-const FILTER_TEXT_KEY = 'filter';
-const FILTER_CHECKBOX_KEY = 'checkbox'
+import { SHORT_FILM_DURATION,MOVIES_KEY, FILTER_TEXT_KEY,  FILTER_CHECKBOX_KEY } from './constants';
 
 function storeState(key, state) {
   try {
@@ -47,7 +44,7 @@ export function useMovies({ initialSize, moreSize }) {
   const [filterText, setFilterText] = useState(
     loadInitialState(FILTER_TEXT_KEY, '')
   );
-  const [isChecked, setIsChecked] = useState(loadInitialState(FILTER_CHECKBOX_KEY, false));
+  const [isShortFilms, setIsShortFilms] = useState(loadInitialState(FILTER_CHECKBOX_KEY, false));
   const [allMovies, setAllMovies] = useState(loadInitialState(MOVIES_KEY, []));
   const [savedMovies, setSavedMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -108,7 +105,7 @@ export function useMovies({ initialSize, moreSize }) {
       }
       return movie;
     })
-    .filter((movie) => !isChecked || movie.duration < 40)
+    .filter((movie) => !isShortFilms || movie.duration < SHORT_FILM_DURATION)
     .filter(
       (movie) =>
         filterRegExp.test(movie.nameRU) || filterRegExp.test(movie.nameEN)
@@ -138,13 +135,14 @@ export function useMovies({ initialSize, moreSize }) {
     loadMore,
     hasMore,
     filterText,
+    isShortFilms,
     setFilterText: (text) => {
       storeState(FILTER_TEXT_KEY, text);
       setFilterText(text);
     },
-    setIsChecked: (isChecked) => {
+    setIsShortFilms: (isChecked) => {
       storeState(FILTER_CHECKBOX_KEY, isChecked);
-      setIsChecked(isChecked);
+      setIsShortFilms(isChecked);
     },
     saveMovieById,
     deleteMovieById,

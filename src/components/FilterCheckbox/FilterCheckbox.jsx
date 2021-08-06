@@ -8,7 +8,7 @@ function FilterCheckbox({checked, onChange}) {
         className='filter-checkbox__checkbox'
         type='checkbox'
         name='short-film'
-        value={checked}
+        checked={checked}
         onChange={onChange}
       />
       <div className='filter-checkbox__switch' />

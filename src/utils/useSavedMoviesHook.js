@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react';
 import MainApi from './MainApi';
+import { SHORT_FILM_DURATION } from './constants';
 
 export function useSavedMovies() {
   const [filterText, setFilterText] = useState('');
-  const [isChecked, setIsChecked] = useState(false);
+  const [isShortFilms, setIsShortFilms] = useState(false);
   const [savedMovies, setSavedMovies] = useState([]);
 
   const reloadSavedMovies = () => {
@@ -23,7 +24,7 @@ export function useSavedMovies() {
   const filterRegExp = new RegExp(filterText, 'i');
 
   const filteredMovies = savedMovies
-    .filter((movie) => !isChecked || movie.duration < 40)
+    .filter((movie) => !isShortFilms|| movie.duration < SHORT_FILM_DURATION)
     .filter(
       (movie) =>
         filterRegExp.test(movie.nameRU) || filterRegExp.test(movie.nameEN)
@@ -44,9 +45,9 @@ export function useSavedMovies() {
     setFilterText: (text) => {
       setFilterText(text);
     },
-    isChecked,
-    setIsChecked: (isChecked) => {
-      setIsChecked(isChecked);
+    isShortFilms,
+    setIsShortFilms: (isChecked) => {
+      setIsShortFilms(isChecked);
     },
     deleteSavedMovieById,
   };

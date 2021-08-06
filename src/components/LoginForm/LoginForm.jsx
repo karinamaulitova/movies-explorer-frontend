@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useFormWithValidation } from '../../utils/useFormWithValidationHook';
 
-function LoginForm({ onSubmit }) {
+function LoginForm({ onSubmit, isDisabled }) {
   const { values, handleChange, resetForm, errors, isValid } =
     useFormWithValidation();
 
@@ -41,6 +41,7 @@ function LoginForm({ onSubmit }) {
             value={values.email ?? ''}
             onChange={handleChange}
             placeholder='E-mail'
+            disabled={isDisabled}
           />
           <span className='login-form__error'>{errors.email}</span>
         </div>
@@ -57,6 +58,7 @@ function LoginForm({ onSubmit }) {
             value={values.password ?? ''}
             onChange={handleChange}
             placeholder='Пароль'
+            disabled={isDisabled}
           />
           <span className='login-form__error'>{errors.password}</span>
         </div>

@@ -6,17 +6,13 @@ import MoviesCardsList from '../MoviesCardsList/MoviesCardsList';
 import { useMovies } from '../../utils/useMoviesHook';
 import Preloader from '../Preloader/Preloader';
 import { usePageSize } from '../../utils/usePageSizeHook';
+import {PAGE_SIZE_CONFIG} from '../../utils/constants';
 
-const pageSizeConfig = {
-  s: { initialSize: 5, moreSize: 2 },
-  m: { initialSize: 8, moreSize: 2 },
-  l: { initialSize: 16, moreSize: 4 },
-};
 
 function MoviesPage({ loggedIn }) {
   const pageSize = usePageSize();
 
-  const { initialSize, moreSize } = pageSizeConfig[pageSize];
+  const { initialSize, moreSize } = PAGE_SIZE_CONFIG[pageSize];
 
   const {
     movies,
@@ -27,15 +23,14 @@ function MoviesPage({ loggedIn }) {
     hasMore,
     filterText,
     setFilterText,
-    isChecked,
-    setIsChecked,
+    setIsShortFilms,
+    isShortFilms,
     saveMovieById,
     deleteMovieById,
   } = useMovies({ initialSize, moreSize });
 
-  function handleFormSubmit({text, isChecked}) {
+  function handleFormSubmit({text}) {
     setFilterText(text);
-    setIsChecked(isChecked);
   }
 
   return (
@@ -43,8 +38,11 @@ function MoviesPage({ loggedIn }) {
       <Header loggedIn={loggedIn} />
       <main className='movies-page__main'>
         <SearchForm
-          initialValues={{ filterText, isChecked }}
+          initialValues={{ filterText }}
+          isShortFilms={isShortFilms}
+          setIsShortFilms={setIsShortFilms}
           onSubmit={handleFormSubmit}
+          isDisabled={isLoading}
         />
         {isNothingFound ? (
           <p className='movies-page__error'>Ничего не найдено</p>
