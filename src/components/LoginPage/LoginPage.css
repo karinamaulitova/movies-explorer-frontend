@@ -32,6 +32,15 @@
   .login-page__logo {
     align-self: flex-start;
   }
+
+  .login-page__overlay {
+    position: absolute;
+    top: 0;
+    left:0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.3);
+  }
   
   @media screen and (max-width: 1279px) {
     .login-page__main {

@@ -1,28 +1,37 @@
 import React, { useState } from 'react';
-// import search from '../../images/search-icon.svg';
 import FilterCheckbox from '../FilterCheckbox/FilterCheckbox';
 
-function SearchForm() {
-  const [value, setValue] = useState('');
+function SearchForm({ onSubmit, initialValues = {}, isShortFilms, setIsShortFilms, isDisabled }) {
+  const [text, setText] = useState(initialValues.filterText ?? '');
 
-  function handleChange(e) {
-    setValue(e.target.value);
+  function handleInputChange(e) {
+    setText(e.target.value);
+  }
+
+  function handleCheckboxChange(e) {
+    setIsShortFilms(e.target.checked)
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    onSubmit({text});
   }
   return (
     <section className='search-form'>
-      <form className='search-form__form' name='search'>
+      <form className='search-form__form' name='search' onSubmit={handleSubmit}>
         <div className='search-form__input-wrapper'>
           <input
             className='search-form__input'
             type='search'
             placeholder='Фильмы'
-            value={value}
+            value={text}
             required
-            onChange={handleChange}
+            onChange={handleInputChange}
+            disabled={isDisabled}
           />
           <button type='submit' className='search-form__button hover_type_svg'>
             <svg
-            className='search-form__button-icon'
+              className='search-form__button-icon'
               width='22'
               height='22'
               viewBox='0 0 22 22'
@@ -38,7 +47,7 @@ function SearchForm() {
             </svg>
           </button>
         </div>
-        <FilterCheckbox />
+        <FilterCheckbox  checked={isShortFilms} onChange={handleCheckboxChange} />
       </form>
     </section>
   );

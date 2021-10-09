@@ -19,8 +19,10 @@
 @import url('../components/SavedMoviesPage/SavedMoviesPage.css');
 @import url('../components/ProfilePage/ProfilePage.css');
 @import url('../components/ProfileEditForm/ProfileEditForm.css');
-@import url('../components/AuthForm/AuthForm.css');
+@import url('../components/LoginForm/LoginForm.css');
+@import url('../components/RegisterForm/RegisterForm.css');
 @import url('../components/RegisterPage/RegisterPage.css');
 @import url('../components/LoginPage/LoginPage.css');
 @import url('../components/PageNotFound/PageNotFound.css');
 @import url('./hover.css');
+@import url('./fullscreen-container.css');

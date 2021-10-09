@@ -1,11 +1,6 @@
-import React, { useState } from 'react';
+import React  from 'react';
 
-function FilterCheckbox() {
-  const [value, setValue] = useState(false);
-
-  function handleChange(e) {
-    setValue(e.target.value);
-  }
+function FilterCheckbox({checked, onChange}) {
 
   return (
     <label className='filter-checkbox'>
@@ -13,8 +8,8 @@ function FilterCheckbox() {
         className='filter-checkbox__checkbox'
         type='checkbox'
         name='short-film'
-        value={value}
-        onChange={handleChange}
+        checked={checked}
+        onChange={onChange}
       />
       <div className='filter-checkbox__switch' />
       <span className='filter-checkbox__label'>Короткометражки</span>

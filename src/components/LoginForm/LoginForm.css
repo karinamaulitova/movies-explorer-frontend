@@ -1,10 +1,10 @@
-.auth-form {
+.login-form {
   display: flex;
   flex-direction: column;
   padding: 40px 0 15px;
 }
 
-.auth-form__heading {
+.login-form__heading {
   font-style: normal;
   font-weight: 500;
   font-size: 24px;
@@ -13,19 +13,19 @@
   margin: 0;
 }
 
-.auth-form__form {
+.login-form__form {
   padding-top: 20px;
   display: flex;
   flex-direction: column;
 }
 
-.auth-form__input-wrapper {
+.login-form__input-wrapper {
   display: flex;
   flex-direction: column;
   padding-top: 20px;
 }
 
-.auth-form__label {
+.login-form__label {
   font-style: normal;
   font-weight: normal;
   font-size: 10px;
@@ -35,7 +35,7 @@
   margin: 0 0 10px 0;
 }
 
-.auth-form__input {
+.login-form__input {
   font-style: normal;
   font-weight: normal;
   font-size: 13px;
@@ -48,15 +48,32 @@
   box-sizing: border-box;
 }
 
-.auth-form__input-error {
+.login-form__input:disabled {
+  background: #d3d3d3;
+}
+
+.login-form__error {
   font-style: normal;
   font-weight: normal;
   font-size: 10px;
   line-height: 12px;
   color: #ee3465;
+  max-width: 396px;
 }
 
-.auth-form__button {
+.login-form__error_type_server {
+  font-size: 14px;
+  line-height: 17px;
+  margin-bottom: 10px;
+}
+
+.login-form__button-wrapper {
+  display: flex;
+  flex-direction: column;
+  margin-top: 180px;
+}
+
+.login-form__button {
   font-style: normal;
   font-weight: 500;
   font-size: 14px;
@@ -68,28 +85,29 @@
   box-sizing: border-box;
   border: 1px solid #3456f3;
   padding: 15px 0;
-  margin-top: 90px;
+  width: 100%;
 }
 
-.auth-form__button_type_login {
-  margin-top: 180px;
+.login-form__button:disabled {
+  opacity: 0.4;
+  pointer-events: none;
 }
 
 @media screen and (max-width: 767px) {
-  .auth-form__form {
+  .login-form__form {
     padding-top: 60px;
     align-items: center;
   }
 
-  .auth-form__input {
+  .login-form__input {
     min-width: 260px;
   }
 
-  .auth-form__button {
-    margin-top: 195px;
+  .login-form__error {
+    max-width: 260px;
   }
 
-  .auth-form__button_type_login {
+  .login-form__button-wrapper {
     margin-top: 267px;
   }
 }
